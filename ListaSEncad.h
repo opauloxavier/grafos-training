@@ -22,5 +22,6 @@ class ListaSEncad{
 		void removeUlt();
 		void removeIt();
 		int tamanhoLista();
+		bool isEmpty();
 		~ListaSEncad();
 };

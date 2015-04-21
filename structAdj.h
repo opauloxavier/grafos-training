@@ -6,13 +6,13 @@ class structAdj{
 		//ListaSEncad *adj ;
 		int tamanhoLista;
 		No *auxiliar;
+		int numeroVertices;
 	
 	public:
 		ListaSEncad *adj ;
 		structAdj(int vertices);
 		void insereVertice(float valor);
 		void insereAresta(int posicaoLista,float valor);
-		void criaGrafo();
-
+		structAdj *geraGrafo(int vertices);
 		~structAdj();
 };

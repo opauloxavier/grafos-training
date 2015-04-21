@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 ListaSEncad::ListaSEncad()
 {
 	pri = NULL;
@@ -180,4 +182,9 @@ void ListaSEncad::removeIt()
 	
 }
 
-
+bool ListaSEncad::isEmpty(){
+	if(pri==NULL)
+		return true;
+	else
+		return false;
+}

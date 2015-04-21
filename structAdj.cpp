@@ -1,14 +1,17 @@
 #include "structAdj.h"
 
+
 structAdj::structAdj(int vertices)
 {
 	adj = new ListaSEncad[vertices];
 	tamanhoLista=0;
+	numeroVertices=vertices;
 }
-
 
 void structAdj::insereVertice(float valor)
 {
+	if(tamanhoLista<numeroVertices){
+
 	ListaSEncad *lista = new ListaSEncad();
 
 	lista->inserePri(valor);
@@ -16,27 +19,17 @@ void structAdj::insereVertice(float valor)
 	adj[tamanhoLista] = *lista;
 
 	tamanhoLista++;
+	
+	}
+
+	else
+		printf("Ja atingiu o numero maximo de vertices");
 }
 
 void structAdj::insereAresta(int posicaoLista,float valor)
 {
-	adj[posicaoLista].insereNo(valor);
+	if(!adj[posicaoLista].isEmpty() and posicaoLista<numeroVertices)
+		adj[posicaoLista].insereNo(valor);
+	else
+		printf("E necessario criar o vertice primeiro");
 }
-
-int main(){
-
-	structAdj *a = new structAdj(4);
-
-	a->insereVertice(3);
-	a->insereVertice(2);
-	a->insereAresta(0,4);
-
-	printf("%d",a->adj[0].busca(4));
-
-	printf("EU FUNCIONO");
-
-	getchar();
-
-
-	return 0;
-};
