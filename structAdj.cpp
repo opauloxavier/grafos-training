@@ -33,6 +33,10 @@ int main(){
 
 	printf("%d",a->adj[0].busca(4));
 
+	printf("EU FUNCIONO");
+
+	getchar();
+
 
 	return 0;
 };
