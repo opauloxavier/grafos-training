@@ -18,10 +18,13 @@ class ListaSEncad{
 		void posicaoAnterior(float val);
 		void insereAntesNo(float val);
 		void insereNo(float val);
+		void insereNoBase(No *no);
 		void eliminaPri();
 		void removeUlt();
 		void removeIt();
+		void inserePriNo(No *no);
 		int tamanhoLista();
 		bool isEmpty();
+		No* consultaNo();
 		~ListaSEncad();
 };

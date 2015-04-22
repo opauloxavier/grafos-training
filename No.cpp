@@ -1,7 +1,10 @@
 #include "no.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-No::No(){}
+No::No(){
+	cor='w';
+}
 
 float No::consultaInfo(){
 
@@ -9,8 +12,7 @@ float No::consultaInfo(){
 }
 
 No *No::consultaProx(){
-
-	return prox;
+		return prox;
 }
 
 void No::atribProx(No *p){
@@ -21,6 +23,19 @@ void No::atribProx(No *p){
 void No::atribInfo(float val){
 	
 	info = val;
+}
+
+char No::retCor(){
+	return cor;
+}
+
+void No::pinta(){
+	if(cor=='w'){
+		cor='g';
+	}
+
+	else if(cor=='g')
+		cor='b';
 }
 
 No::~No(){}

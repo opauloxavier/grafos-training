@@ -1,0 +1,15 @@
+pinta o vertice de cinza, poe na fila//
+checa os adjacentes, adiciona na fila.
+remove 1 da fila e pinta de azul,
+
+repete infinitamente.
+
+
+se azul, ignora.
+se cinza, ao adicionar os adjacentes, pinta de azul
+se branco, visita o cadango
+
+
+w=branco;
+g=cinza;
+b=azul;

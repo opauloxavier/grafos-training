@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -16,6 +15,17 @@ float ListaSEncad::consulta()
 {
 	if(it != NULL)
 		return it->consultaInfo();
+	else
+	{
+		printf("Nó invalido");
+	exit(1);
+	}
+}
+
+No *ListaSEncad::consultaNo()
+{
+	if(it != NULL)
+		return it;
 	else
 	{
 		printf("Nó invalido");
@@ -76,6 +86,7 @@ void ListaSEncad::inserePri(float val)
 	p->atribInfo(val);
 	p->atribProx(pri);
 	pri=p;
+	it=pri;
 }
 
 void ListaSEncad::insereAntesNo(float val)
@@ -119,7 +130,6 @@ void ListaSEncad::insereNo(float val)
 	
 	temp->atribProx(temp2);
 }
-
 
 void ListaSEncad::removeUlt()
 {
@@ -187,4 +197,14 @@ bool ListaSEncad::isEmpty(){
 		return true;
 	else
 		return false;
+}
+
+
+void ListaSEncad::inserePriNo(No *no){
+	if(no != NULL){
+		pri=no;
+		it=pri;
+	}
+	else
+		printf("deu ruim INSEREPRINO");
 }

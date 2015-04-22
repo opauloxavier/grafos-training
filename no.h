@@ -3,6 +3,7 @@ class No{
 	private:
 		float info;
 		No *prox;
+		char cor;
 	
 	public:
 		No();
@@ -10,5 +11,7 @@ class No{
 		No *consultaProx();
 		void atribInfo(float val);
 		void atribProx(No *p);
+		char retCor();
+		void pinta();
 		~No();
 };
