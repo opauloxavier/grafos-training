@@ -22,6 +22,10 @@ int main(){
 
 	g->vertices[4].insereVizinho(2);
 
+	g->buscaLargura();
+		//g->buscaLargura();
+
+	cout << g->vertices[0].cor ;
 
 
 	return 0;

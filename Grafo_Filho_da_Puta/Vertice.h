@@ -18,6 +18,7 @@ class Vertice{
 		Vertice();
 		void definirInfo(int indice);
 		int exibirInfo();
+		void pintar();
 		void definirDistancia();
 		int exibirDistancia();
 		void definirAnterior(Vertice *ant);
