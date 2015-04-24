@@ -8,5 +8,6 @@ class Grafo{
 		Grafo(int numVertices);
 		void inserirVertice();
 		void buscaLargura(int indice);
+		void buscaProfundidade(int indice);
 		~Grafo();
 };

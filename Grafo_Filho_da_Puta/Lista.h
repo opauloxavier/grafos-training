@@ -15,5 +15,7 @@ class Lista{
 		int tamanhoLista();
 		void consultaLista();
 		void removeDaFila();
+		void empilhar(int indice);
+		void desempilhar();
 		~Lista();
 };

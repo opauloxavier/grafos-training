@@ -117,6 +117,20 @@ void Lista::removeDaFila(){
  		exit(1);
 }
 
+void Lista::empilhar(int valor){
+
+	No *p = new No();
+	p->info = valor;
+	p->prox = pri;
+	pri=p;
+	it=pri;
+}
+
+void desempilhar(){
+
+	removeDaFila();
+}
+
 Lista::~Lista(){
 	
 	No *p = pri;
