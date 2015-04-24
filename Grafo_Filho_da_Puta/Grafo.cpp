@@ -1,4 +1,5 @@
 #include "Grafo.h"
+#include <cstdio>
 
 Grafo::Grafo(int numVertices){
 
@@ -21,42 +22,38 @@ void Grafo::buscaLargura(int indice){
 	
 	while(fila->pri != NULL){
 
-
 		vertices[auxiliar].vizinhos->inicio();
+
+		int i = 1;
 
 		while(!vertices[auxiliar].vizinhos->fimDaLista()){
 
-			cout<<"Executei 2"<<endl;
-
 			indiceVizinho = vertices[auxiliar].vizinhos->it->info;
 
-			if(vertices[indiceVizinho].cor == 'w')
+			if(vertices[indiceVizinho].cor == 'w'){
 				fila->insereNo(indiceVizinho);
-			
-			//fila->consultaLista();
-
-			cout<<vertices[auxiliar].vizinhos->it->info<<endl;
+				vertices[indiceVizinho].pintar();
+				vertices[indiceVizinho].anterior = &vertices[auxiliar];
+				vertices[indiceVizinho].definirDistancia();
+			}
 
 
 			vertices[auxiliar].vizinhos->it = vertices[auxiliar].vizinhos->it->prox;
 
-			if(vertices[auxiliar].vizinhos->it == NULL)
-				cout<<"Filho da Pulta"<<endl;
+			i++;
 			
 		}
 
-		//fila->consultaLista();
-
 		vertices[auxiliar].pintar();
 
-		cout<<"Visitei o vertice "<<fila->pri->info<<endl;
+		cout<<"Visitei o vertice "<<fila->pri->info<<"..."<<endl;
 
 		fila->removeDaFila();
 
 		if(fila->pri != NULL)
 			auxiliar = fila->pri->info;
 
-		cout<<auxiliar<<endl;
+		//cout<<auxiliar<<endl;
 	}
 	//fila->insereNo(vertices[1].vizinhos()->pri->info
 

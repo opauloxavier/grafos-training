@@ -28,30 +28,24 @@ void Lista::inserePri(int valor){
 
 void Lista::insereNo(int valor){
 
-	if(pri == NULL){
-		
-		cout<<"Lista Vazia, valor informado será inserido na primeira posição"<<endl;
+	if(pri==NULL)
 		inserePri(valor);
-		cout<<valor<<" inserido na porra da lista"<<endl;
-	}	
 	else{
+		No *p = new No();
+	 	No *temp = new No();
+	 	No *temp2 = new No();
+	  
+	 	temp2->atribuiInfo(valor);
+	  
+		for( p=pri ; p!= NULL ; p = p->consultaProximo()){
 
-		if(!fimDaLista())
-			while(it->consultaProximo() != NULL)
-				it = it->consultaProximo();
-
-		it->atribuiProximo(valor);
-
-		it = it->consultaProximo();
-
-		cout<<valor<<" inserido na porra da lista"<<endl;
+		 	temp = p;
+		}
+		  
+		temp->atribuiProximo(temp2->info);
 	}
 }
 
-int Lista::consulta(){
-
-	return it->consultaInfo();
-}
 
 void Lista::inicio(){
 
@@ -114,7 +108,8 @@ void Lista::removeDaFila(){
  	if(pri != NULL){ 
  	 
  		p = pri;
- 		pri = p->consultaProximo();
+ 		pri = p->prox;
+ 		it = pri;
  		delete p;
  	}
  	
