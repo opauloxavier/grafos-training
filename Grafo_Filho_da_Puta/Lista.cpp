@@ -32,6 +32,7 @@ void Lista::insereNo(int valor){
 		
 		cout<<"Lista Vazia, valor informado será inserido na primeira posição"<<endl;
 		inserePri(valor);
+		cout<<valor<<" inserido na porra da lista"<<endl;
 	}	
 	else{
 
@@ -42,6 +43,8 @@ void Lista::insereNo(int valor){
 		it->atribuiProximo(valor);
 
 		it = it->consultaProximo();
+
+		cout<<valor<<" inserido na porra da lista"<<endl;
 	}
 }
 
@@ -64,15 +67,7 @@ void Lista::proximoNo(){
 
 bool Lista::fimDaLista(){
 
-	if(pri != NULL)
-		if(it->consultaProximo()==NULL)
-			return true;
-		else
-			return false;
-	else
-		cout<<"Lista Vazia"<<endl;
-
-	return false;	
+	return (it == NULL);	
 }
 
 int Lista::tamanhoLista(){
@@ -114,32 +109,17 @@ void Lista::consultaLista(){
 
 void Lista::removeDaFila(){
 
-	if(pri == NULL)
-		cout<<"Fila vazia"<<endl;
-	else{
-
-		No *p = pri;
-
-		if(pri->consultaProximo() == NULL){
-			
-			pri = NULL;
-			it = NULL;
-			delete p;
-		}
-		else{
-			if(it==pri){
-
-				pri = pri->consultaProximo();
-				it = pri;
-				delete p;
-			}
-			else{
-
-				pri = pri->consultaProximo();
-				delete p;
-			}
-		}
-	}
+	No *p;
+  
+ 	if(pri != NULL){ 
+ 	 
+ 		p = pri;
+ 		pri = p->consultaProximo();
+ 		delete p;
+ 	}
+ 	
+ 	else
+ 		exit(1);
 }
 
 Lista::~Lista(){

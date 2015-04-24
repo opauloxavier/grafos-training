@@ -7,6 +7,6 @@ class Grafo{
 		Lista *fila;
 		Grafo(int numVertices);
 		void inserirVertice();
-		void buscaLargura();
+		void buscaLargura(int indice);
 		~Grafo();
 };
