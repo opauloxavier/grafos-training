@@ -5,7 +5,8 @@ using namespace std;
 
 int main(){
 
-	Grafo *g = new Grafo(6);
+	int vertices = 5;
+	Grafo *g = new Grafo(vertices);
 
 	g->vertices[0].insereVizinho(1);
 	
@@ -27,19 +28,12 @@ int main(){
 
 	g->buscaLargura(0);
 
-	cout<<g->vertices[0].cor<<endl;
-	cout<<g->vertices[1].cor<<endl;
-	cout<<g->vertices[2].cor<<endl;
-	cout<<g->vertices[3].cor<<endl;
-	cout<<g->vertices[4].cor<<endl;
-	cout<<g->vertices[5].cor<<endl;
+	for (int i=0;i<vertices;i++)
+		cout<<g->vertices[i].cor<<endl;
 
-	cout<<g->vertices[0].distancia<<endl;
-	cout<<g->vertices[1].distancia<<endl;
-	cout<<g->vertices[2].distancia<<endl;
-	cout<<g->vertices[3].distancia<<endl;
-	cout<<g->vertices[4].distancia<<endl;
-	cout<<g->vertices[5].distancia<<endl;
+	for (int i=0;i<vertices;i++)
+		cout<<g->vertices[i].distancia<<endl;
+
 
 		//g->buscaLargura();
 

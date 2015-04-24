@@ -7,24 +7,27 @@ Grafo::Grafo(int numVertices){
 
 	for(int i = 0; i < numVertices; i++)
 		vertices[i].info = i;
+
+	verticesGrafo=numVertices;
+
 }
 
 void Grafo::buscaLargura(int indice){
 
 	int auxiliar = indice;
-	int indiceVizinho;
+	int indiceVizinho=0;
 
 	fila = new Lista();
 
 
 	vertices[auxiliar].pintar();
 	fila->insereNo(vertices[auxiliar].info);
+
+	//cout<< "Entrei!"<<endl;
 	
 	while(fila->pri != NULL){
 
 		vertices[auxiliar].vizinhos->inicio();
-
-		int i = 1;
 
 		while(!vertices[auxiliar].vizinhos->fimDaLista()){
 
@@ -37,10 +40,7 @@ void Grafo::buscaLargura(int indice){
 				vertices[indiceVizinho].definirDistancia();
 			}
 
-
 			vertices[auxiliar].vizinhos->it = vertices[auxiliar].vizinhos->it->prox;
-
-			i++;
 			
 		}
 
@@ -55,7 +55,11 @@ void Grafo::buscaLargura(int indice){
 
 		//cout<<auxiliar<<endl;
 	}
-	//fila->insereNo(vertices[1].vizinhos()->pri->info
+
+	for(int i=0; i < verticesGrafo ;i++){
+		if(vertices[i].cor=='w')
+			cout<<"Grafo desconexo em "<< i<< endl;
+	}
 
 }
 
