@@ -126,7 +126,7 @@ void Lista::empilhar(int valor){
 	it=pri;
 }
 
-void desempilhar(){
+void Lista::desempilhar(){
 
 	removeDaFila();
 }

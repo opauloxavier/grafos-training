@@ -15,6 +15,9 @@ class Vertice{
 		int info;
 		Vertice *anterior;
 		Lista *vizinhos;
+		int tempoEmpilhar;
+		int tempoDesempilhar;
+
 		Vertice();
 		void definirInfo(int indice);
 		int exibirInfo();

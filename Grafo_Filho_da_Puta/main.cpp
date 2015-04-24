@@ -5,34 +5,34 @@ using namespace std;
 
 int main(){
 
-	int vertices = 5;
-	Grafo *g = new Grafo(vertices);
+	// int vertices = 5;
+	// Grafo *g = new Grafo(vertices);
 
-	g->vertices[0].insereVizinho(1);
+	// g->vertices[0].insereVizinho(1);
 	
-	g->vertices[1].insereVizinho(0);
-	g->vertices[1].insereVizinho(2);
-	g->vertices[1].insereVizinho(3);
+	// g->vertices[1].insereVizinho(0);
+	// g->vertices[1].insereVizinho(2);
+	// g->vertices[1].insereVizinho(3);
 
-	g->vertices[2].insereVizinho(1);
-	g->vertices[2].insereVizinho(3);
-	g->vertices[2].insereVizinho(4);
+	// g->vertices[2].insereVizinho(1);
+	// g->vertices[2].insereVizinho(3);
+	// g->vertices[2].insereVizinho(4);
 
-	g->vertices[3].insereVizinho(1);
-	g->vertices[3].insereVizinho(2);
+	// g->vertices[3].insereVizinho(1);
+	// g->vertices[3].insereVizinho(2);
 
-	g->vertices[4].insereVizinho(2);
+	// g->vertices[4].insereVizinho(2);
 	//g->vertices[4].insereVizinho(5);
 
 	//g->vertices[5].insereVizinho(4);
 
-	g->buscaLargura(0);
+	// g->buscaLargura(0);
 
-	for (int i=0;i<vertices;i++)
-		cout<<g->vertices[i].cor<<endl;
+	// for (int i=0;i<vertices;i++)
+	// 	cout<<g->vertices[i].cor<<endl;
 
-	for (int i=0;i<vertices;i++)
-		cout<<g->vertices[i].distancia<<endl;
+	// for (int i=0;i<vertices;i++)
+	// 	cout<<g->vertices[i].distancia<<endl;
 
 
 		//g->buscaLargura();
@@ -67,6 +67,16 @@ int main(){
 	// cout<<endl;
 
 	// l->consultaLista();
+
+	Grafo *g = new Grafo(3);
+
+	g->vertices[0].insereVizinho(1);
+	g->vertices[0].insereVizinho(2);
+
+	g->vertices[1].insereVizinho(2);
+
+	g->buscaProfundidade(0);
+
 
 	return 0;
 }
