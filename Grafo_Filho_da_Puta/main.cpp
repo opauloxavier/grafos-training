@@ -77,6 +77,7 @@ int main(){
 
 	g->buscaProfundidade(0);
 
+	printf("textando");
 
 	return 0;
 }
