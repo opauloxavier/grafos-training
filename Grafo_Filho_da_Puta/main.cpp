@@ -77,7 +77,7 @@ int main(){
 
 	g->buscaProfundidade(0);
 
-	printf("testando novamentes 32");
+	printf("testando novamentes 3223");
 
 	return 0;
 }
