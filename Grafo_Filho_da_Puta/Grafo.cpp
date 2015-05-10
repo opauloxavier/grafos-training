@@ -8,6 +8,7 @@ Grafo::Grafo(int numVertices){
 	tempo = 0;
 
 	pilha = new Lista();
+	fila = new Lista();
 
 	for(int i = 0; i < numVertices; i++)
 		vertices[i].info = i;
@@ -20,9 +21,6 @@ void Grafo::buscaLargura(int indice){
 
 	int auxiliar = indice;
 	int indiceVizinho = 0;
-
-	fila = new Lista();
-
 
 	vertices[auxiliar].pintar();
 	fila->insereNo(vertices[auxiliar].info);
@@ -63,6 +61,7 @@ void Grafo::buscaLargura(int indice){
 	for(int i=0; i < verticesGrafo ;i++){
 		if(vertices[i].cor == 'w')
 			cout<<"Grafo desconexo em "<< i<< endl;
+			buscaLargura(i);
 	}
 
 }
