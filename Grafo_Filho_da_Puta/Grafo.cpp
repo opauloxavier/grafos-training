@@ -8,7 +8,7 @@ Grafo::Grafo(int numVertices){
 	tempo = 0;
 
 	pilha = new Lista();
-	
+
 	fila = new Lista();
 
 	for(int i = 0; i < numVertices; i++)
@@ -22,8 +22,7 @@ void Grafo::buscaLargura(int indice){
 
 	int auxiliar = indice;
 	int indiceVizinho = 0;
-
-
+	
 	vertices[auxiliar].pintar();
 	fila->insereNo(vertices[auxiliar].info);
 

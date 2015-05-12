@@ -29,6 +29,7 @@ int main(){
 	// cout << g->contadorProfundidade<<endl;
 	 g->visita(0);
 
+	printf("testando novamentes 3223");
 
 	return 0;
 }
