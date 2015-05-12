@@ -8,6 +8,8 @@ Grafo::Grafo(int numVertices){
 	tempo = 0;
 
 	pilha = new Lista();
+	
+	fila = new Lista();
 
 	for(int i = 0; i < numVertices; i++)
 		vertices[i].info = i;
@@ -20,8 +22,6 @@ void Grafo::buscaLargura(int indice){
 
 	int auxiliar = indice;
 	int indiceVizinho = 0;
-
-	fila = new Lista();
 
 
 	vertices[auxiliar].pintar();
@@ -63,6 +63,7 @@ void Grafo::buscaLargura(int indice){
 	for(int i=0; i < verticesGrafo ;i++){
 		if(vertices[i].cor == 'w')
 			cout<<"Grafo desconexo em "<< i<< endl;
+			buscaLargura(i);
 	}
 
 }
@@ -80,7 +81,7 @@ void Grafo::buscaProfundidade(int indice){
 
 	pilha->empilhar(vertices[indice].info);
 
-	for(p = vertices[indice].vizinhos->pri;p != NULL; p->consultaProximo()){
+	for(p = vertices[indice].vizinhos->it;p != NULL; p=p->consultaProximo()){
 
 		if(vertices[p->info].cor == 'w'){
 
@@ -110,7 +111,33 @@ void Grafo::buscaProfundidade(int indice){
 		cout<<"Vértice "<<i<<": "<<vertices[i].tempoEmpilhar<<"/"<<vertices[i].tempoDesempilhar<<endl;
 	}
 
-	exit(1);
+}
+
+
+void Grafo::visita(int indice){
+
+	tempo++;
+	
+	vertices[indice].tempoEmpilhar = tempo;
+	vertices[indice].pintar();
+	
+	No *p = new No();
+
+	for(p = vertices[indice].vizinhos->pri;p != NULL; p=p->consultaProximo()){
+		if(vertices[p->info].cor=='w'){
+			vertices[p->info].pintar();
+			vertices[indice].tempoEmpilhar = tempo;
+			//cout<<"Visitei "<< p->info <<" "<<endl;
+			cout<<"Tempo:  "<< vertices[indice].tempoEmpilhar <<" "<<endl;
+			visita(indice);
+		}
+	}	
+	
+	vertices[indice].pintar();
+	tempo++;
+	//pred[v] = u
+	//visita(G,v)
+	//f[u] = tempo
 }
 
 Grafo::~Grafo(){}

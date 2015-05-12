@@ -60,6 +60,11 @@ void Vertice::exibeVizinhos(){
 	vizinhos->consultaLista();
 }
 
+int Vertice::numeroVizinhos(){
+
+	return vizinhos->tamanhoLista();
+}
+
 Lista *Vertice::exibirLista(){
 
 	return vizinhos;

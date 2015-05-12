@@ -27,6 +27,7 @@ class Vertice{
 		void definirAnterior(Vertice *ant);
 		void insereVizinho(int valor);
 		void exibeVizinhos();
+		int numeroVizinhos();
 		Lista *exibirLista();
 		~Vertice();
 
