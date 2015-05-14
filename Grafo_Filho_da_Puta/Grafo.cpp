@@ -10,6 +10,8 @@ Grafo::Grafo(int numVertices){
 	pilha = new Lista();
 
 	fila = new Lista();
+	
+	conexos = new Lista();
 
 	for(int i = 0; i < numVertices; i++)
 		vertices[i].info = i;
@@ -112,14 +114,21 @@ void Grafo::buscaProfundidade(int indice){
 
 }
 
-void Grafo::profundidade(){
-	for(int i=0;i<verticesGrafo;i++)
-		if(vertices[i].cor=='w')
-			visita(i);	
+void Grafo::profundidade(bool verbose){
+	int conexo;
+	for(int i=0;i<verticesGrafo;i++){
+		if(vertices[i].cor=='w'){
+			visita(i,verbose);
+			conexo++;		
+		}
+		if (conexo>1 & verbose)
+			cout <<"Desconexo em "<<i<<endl;
+	}	 
+
 }
 
 
-void Grafo::visita(int indice){
+void Grafo::visita(int indice,bool verbose){
 
 	tempo++;
 	
@@ -127,21 +136,37 @@ void Grafo::visita(int indice){
 	vertices[indice].pintar();
 	
 	No *p = new No();
-
-	cout<< "Empilhei "<<indice<<endl;
+	
+	if(verbose)
+		cout<< "Empilhei "<<indice<<endl;
 	
 	for(p = vertices[indice].vizinhos->pri;p != NULL; p=p->consultaProximo()){
 		if(vertices[p->info].cor=='w'){
 			vertices[p->info].pintar();
 			vertices[indice].tempoEmpilhar = tempo;
-			visita(p->info);
+			visita(p->info,verbose);
 		}
 	}	
 	
+	conexos->empilhar(indice);
 	vertices[indice].pintar();
 	tempo++;
 	vertices[indice].tempoDesempilhar = tempo;
-	cout<< "Desempilhei: "<<indice<<endl;
+	
+	if(verbose)
+		cout<< "Desempilhei: "<<indice<<endl;
 }
+
+void Grafo::fortementeConexo(bool verbose){
+	
+	
+	
+}
+
+void Grafo::grafoTransposto(){
+	
+	
+}
+
 
 Grafo::~Grafo(){}

@@ -6,6 +6,7 @@ class Grafo{
 		Vertice *vertices;
 		Lista *fila;
 		Lista *pilha;
+		Lista *conexos;
 		int tempo;
 		int verticesGrafo;
 
@@ -13,7 +14,9 @@ class Grafo{
 		void inserirVertice();
 		void buscaLargura(int indice);
 		void buscaProfundidade(int indice);
-		void visita(int indice);
-		void profundidade();
+		void visita(int indice,bool verbose);
+		void profundidade(bool verbose);
+		void fortementeConexo(bool verbose);
+		void grafoTransposto();
 		~Grafo();
 };

@@ -13,8 +13,15 @@ int main(){
 	 g->vertices[2].insereVizinho(3);
 	 g->vertices[3].insereVizinho(0);
 	 
+	 g->profundidade(false);
 	// cout << g->contadorProfundidade<<endl;
-	 g->profundidade();
+	
+	No *p = new No();
+	
+	
+	for(p = g->conexos->pri;p != NULL; p=p->consultaProximo()){
+		cout << p->info<<endl;
+	}
 	
 	return 0;
 }
