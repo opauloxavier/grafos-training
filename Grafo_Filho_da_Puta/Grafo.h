@@ -14,5 +14,6 @@ class Grafo{
 		void buscaLargura(int indice);
 		void buscaProfundidade(int indice);
 		void visita(int indice);
+		void profundidade();
 		~Grafo();
 };

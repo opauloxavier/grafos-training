@@ -112,6 +112,12 @@ void Grafo::buscaProfundidade(int indice){
 
 }
 
+void Grafo::profundidade(){
+	for(int i=0;i<verticesGrafo;i++)
+		if(vertices[i].cor=='w')
+			visita(i);	
+}
+
 
 void Grafo::visita(int indice){
 
@@ -122,21 +128,20 @@ void Grafo::visita(int indice){
 	
 	No *p = new No();
 
+	cout<< "Empilhei "<<indice<<endl;
+	
 	for(p = vertices[indice].vizinhos->pri;p != NULL; p=p->consultaProximo()){
 		if(vertices[p->info].cor=='w'){
 			vertices[p->info].pintar();
 			vertices[indice].tempoEmpilhar = tempo;
-			//cout<<"Visitei "<< p->info <<" "<<endl;
-			cout<<"Tempo:  "<< vertices[indice].tempoEmpilhar <<" "<<endl;
-			visita(indice);
+			visita(p->info);
 		}
 	}	
 	
 	vertices[indice].pintar();
 	tempo++;
-	//pred[v] = u
-	//visita(G,v)
-	//f[u] = tempo
+	vertices[indice].tempoDesempilhar = tempo;
+	cout<< "Desempilhei: "<<indice<<endl;
 }
 
 Grafo::~Grafo(){}
