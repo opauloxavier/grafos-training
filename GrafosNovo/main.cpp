@@ -1,17 +1,17 @@
 #include <iostream>
-#include "Dijkstra.h"
+#include "Click.cpp"
 
 using namespace std;
 
 int main(){
 
-	Graph *d = new Graph(1447);
+	Graph *d = new Graph(4);
 
-	d->generateDigraph();
+	d->generateGraph();
 
-	Dijkstra *a = new Dijkstra();
+	Click *a = new Click();
 
-	a->capeta(d);
-
+	a->findClickMaximal(d,0);
+	
 	return 0;
 }

@@ -17,7 +17,10 @@ class List{
 		void vizinhosPog(List *a);
 		void begin();
 		void printList();
+		bool find(int value);
+		int size();
 		void removeFirst();
+		int *returnValue();
 		bool endList();
 		~List();
 };
@@ -55,22 +58,28 @@ void List::setFirst(int value){
 	}
 }
 
+
 void List::addNode(int value){
 
 	if(first==NULL)
 		setFirst(value);
 	else{
+
+		if(!find(value)){
 		Node *p = new Node();
-	 	Node *temp = new Node();
-	 	Node *temp2 = new Node(value);
-
-
-		for( p = first ; p!= NULL ; p = p->next){
-
-		 	temp = p;
+		 	Node *temp = new Node();
+		 	Node *temp2 = new Node(value);
+	
+	
+			for( p = first ; p!= NULL ; p = p->next){
+	
+			 	temp = p;
+			}
+	
+			temp->next =  temp2;
 		}
-
-		temp->next =  temp2;
+		else
+			cout<<"Duplicado"<<endl;
 	}
 }
 
@@ -109,9 +118,56 @@ void List::printList(){
 	cout<<endl;
 }
 
+int *List::returnValue(){
+
+	
+	int contador=0;
+	int *valores = new int[size()];
+
+	begin();
+
+	while(it != NULL){
+
+		valores[contador]=it->value;
+		it = it -> next;
+		contador++;
+	}
+
+	return valores;
+}
+
 bool List::endList(){
 
 	return(it -> next == NULL);
+}
+
+int List::size(){
+
+	int size=0;
+
+	begin();
+
+	while(it	 != NULL){
+		it = it -> next;
+		size++;
+	}
+
+	return size;
+}
+
+bool List::find(int value){
+
+	begin();
+
+	while(it	 != NULL){
+		if(it->value==value){
+			return true;
+			break;
+		}
+		it = it -> next;
+	}
+
+	return false;
 }
 
 List::~List(){
