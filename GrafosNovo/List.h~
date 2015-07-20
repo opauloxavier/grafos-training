@@ -59,6 +59,7 @@ void List::setFirst(int value){
 	}
 }
 
+<<<<<<< HEAD
 void List::insertFirst(float val)
 { 
 	Node *p = new Node();
@@ -67,7 +68,8 @@ void List::insertFirst(float val)
 	first=p;
 	it=first;
 }
-
+=======
+>>>>>>> fcafaa45fa45969b3fab4c41b577be66fa850e4c
 
 void List::addNode(int value){
 

@@ -14,5 +14,6 @@ int main(){
 
 	a->componentesConexas(d);
 
+	
 	return 0;
 }
