@@ -121,4 +121,7 @@ void Graph::printaPog(){
 		cout<< edges[i].distance <<endl;
 }
 
+
+
+
 Graph::~Graph(){}

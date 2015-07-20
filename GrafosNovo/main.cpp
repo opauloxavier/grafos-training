@@ -1,17 +1,18 @@
 #include <iostream>
-#include "Dijkstra.h"
+#include "DepthFirstSearch.h"
+#include "BellmanFord.h"
 
 using namespace std;
 
 int main(){
 
-	Graph *d = new Graph(1447);
+	Graph *d = new Graph(7);
 
-	d->generateDigraph();
+	d->generateGraph();
 
-	Dijkstra *a = new Dijkstra();
+	DepthFirstSearch *a = new DepthFirstSearch();
 
-	a->capeta(d);
+	a->componentesConexas(d);
 
 	return 0;
 }

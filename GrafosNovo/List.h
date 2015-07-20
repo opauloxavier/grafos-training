@@ -18,6 +18,7 @@ class List{
 		void begin();
 		void printList();
 		void removeFirst();
+		void insertFirst(float val);
 		bool endList();
 		~List();
 };
@@ -53,6 +54,15 @@ void List::setFirst(int value){
 		first = n;
 		it = n;
 	}
+}
+
+void List::insertFirst(float val)
+{ 
+	Node *p = new Node();
+	p->value = val;
+	p->next = first;
+	first=p;
+	it=first;
 }
 
 void List::addNode(int value){
